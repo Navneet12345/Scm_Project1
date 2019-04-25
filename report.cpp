@@ -151,4 +151,46 @@ void display_sp(int n)
 //      function to modify record of file
 //****************************************************************
 
+void modify_student()
 
+{
+
+    int no,found=0;
+
+    clrscr();
+
+    cout<<"\n\n\tTo Modify ";
+
+    cout<<"\n\n\tPlease Enter The roll number of student";
+
+    cin>>no;
+
+    fp.open("student.dat",ios::in|ios::out);
+
+    while(fp.read((char*)&st,sizeof(student)) && found==0)
+
+    {
+
+        if(st.retrollno()==no)
+
+        {
+
+            st.showdata();
+
+            cout<<"\nPlease Enter The New Details of student"<<endl;
+
+            st.getdata();
+
+            int pos=-1*sizeof(st);
+
+            fp.seekp(pos,ios::cur);
+
+            fp.write((char*)&st,sizeof(student));
+
+            cout<<"\n\n\t Record Updated";
+
+            found=1;
+
+        }
+
+    }
