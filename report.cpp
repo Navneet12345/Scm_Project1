@@ -267,3 +267,266 @@ void delete_student()
     getch();
 
 }
+
+//***************************************************************
+
+//      function to display all students grade report
+
+//****************************************************************
+
+
+
+void class_result()
+
+{
+
+    clrscr();
+
+    fp.open("student.dat",ios::in);
+
+    if(!fp)
+
+    {
+
+        cout<<"ERROR!!! FILE COULD NOT BE OPEN\n\n\n Go To Entry Menu to create File";
+
+        cout<<"\n\n\n Program is closing ....";
+
+        getch();
+
+        exit(0);
+
+    }
+
+
+
+    cout<<"\n\n\t\tALL STUDENTS RESULT \n\n";
+
+    cout<<"====================================================\n";
+
+    cout<<"Roll No. Name          P  C  M  E  CS  %age Grade\n";
+
+    cout<<"====================================================\n";
+
+
+
+    while(fp.read((char*)&st,sizeof(student)))
+
+    {
+
+        st.show_tabular();
+
+    }
+
+    fp.close();
+
+    getch();
+
+}
+
+//***************************************************************
+
+//      function to display result menu
+
+//****************************************************************
+
+
+
+void result()
+
+{
+
+    int ans,rno;
+
+    char ch;
+
+    clrscr();
+
+    cout<<"\n\n\nRESULT MENU";
+
+    cout<<"\n\n\n1. Class Result\n\n2. Student Report Card\n\n3.Back to Main Menu";
+
+    cout<<"\n\n\nEnter Choice (1/2)? ";
+
+    cin>>ans;
+
+    switch(ans)
+
+    {
+
+    case 1 :
+
+        class_result();
+
+        break;
+
+    case 2 :
+
+    {
+
+        do
+
+        {
+
+            clrscr();
+
+            char ans;
+
+            cout<<"\n\nEnter Roll Number Of Student : ";
+
+            cin>>rno;
+
+            display_sp(rno);
+
+            cout<<"\n\nDo you want to See More Result (y/n)?";
+
+            cin>>ans;
+
+        }
+
+        while(ans=='y'||ans=='Y');
+
+
+
+        break;
+
+    }
+
+    case 3:
+
+        break;
+
+    default:
+
+        cout<<"\a";
+
+    }
+
+}
+
+//***************************************************************
+
+//      INTRODUCTION FUNCTION
+
+//****************************************************************
+
+
+
+void intro()
+
+{
+
+    clrscr();
+
+    gotoxy(35,11);
+
+    cout<<"STUDENT";
+
+    gotoxy(33,14);
+
+    cout<<"REPORT CARD";
+
+    gotoxy(35,17);
+
+    cout<<"PROJECT";
+
+    cout<<"\n\nMADE BY : Code With C";
+
+    cout<<"\n\nCONTACT : codewithc.com";
+
+    getch();
+
+
+
+}
+
+//***************************************************************
+
+//      ENTRY / EDIT MENU FUNCTION
+
+//****************************************************************
+
+void entry_menu()
+
+{
+
+    clrscr();
+
+    char ch2;
+
+    cout<<"\n\n\n\tENTRY MENU";
+
+    cout<<"\n\n\t1.CREATE STUDENT RECORD";
+
+    cout<<"\n\n\t2.DISPLAY ALL STUDENTS RECORDS";
+
+    cout<<"\n\n\t3.SEARCH STUDENT RECORD ";
+
+    cout<<"\n\n\t4.MODIFY STUDENT RECORD";
+
+    cout<<"\n\n\t5.DELETE STUDENT RECORD";
+
+    cout<<"\n\n\t6.BACK TO MAIN MENU";
+
+    cout<<"\n\n\tPlease Enter Your Choice (1-6) ";
+
+    ch2=getche();
+
+    switch(ch2)
+
+    {
+
+    case '1':
+
+        clrscr();
+
+        write_student();
+
+        break;
+
+    case '2':
+
+        display_all();
+
+        break;
+
+    case '3':
+
+        int num;
+
+        clrscr();
+
+        cout<<"\n\n\tPlease Enter The roll number ";
+
+        cin>>num;
+
+        display_sp(num);
+
+        break;
+
+    case '4':
+
+        modify_student();
+
+        break;
+
+    case '5':
+
+        delete_student();
+
+        break;
+
+    case '6':
+
+        break;
+
+    default:
+
+        cout<<"\a";
+
+        entry_menu();
+
+    }
+
+}
+
