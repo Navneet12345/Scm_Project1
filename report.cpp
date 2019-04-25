@@ -324,3 +324,83 @@ void class_result()
 
 }
 
+//***************************************************************
+
+//      function to display result menu
+
+//****************************************************************
+
+
+
+void result()
+
+{
+
+    int ans,rno;
+
+    char ch;
+
+    clrscr();
+
+    cout<<"\n\n\nRESULT MENU";
+
+    cout<<"\n\n\n1. Class Result\n\n2. Student Report Card\n\n3.Back to Main Menu";
+
+    cout<<"\n\n\nEnter Choice (1/2)? ";
+
+    cin>>ans;
+
+    switch(ans)
+
+    {
+
+    case 1 :
+
+        class_result();
+
+        break;
+
+    case 2 :
+
+    {
+
+        do
+
+        {
+
+            clrscr();
+
+            char ans;
+
+            cout<<"\n\nEnter Roll Number Of Student : ";
+
+            cin>>rno;
+
+            display_sp(rno);
+
+            cout<<"\n\nDo you want to See More Result (y/n)?";
+
+            cin>>ans;
+
+        }
+
+        while(ans=='y'||ans=='Y');
+
+
+
+        break;
+
+    }
+
+    case 3:
+
+        break;
+
+    default:
+
+        cout<<"\a";
+
+    }
+
+}
+
