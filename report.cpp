@@ -440,3 +440,93 @@ void intro()
 
 }
 
+//***************************************************************
+
+//      ENTRY / EDIT MENU FUNCTION
+
+//****************************************************************
+
+void entry_menu()
+
+{
+
+    clrscr();
+
+    char ch2;
+
+    cout<<"\n\n\n\tENTRY MENU";
+
+    cout<<"\n\n\t1.CREATE STUDENT RECORD";
+
+    cout<<"\n\n\t2.DISPLAY ALL STUDENTS RECORDS";
+
+    cout<<"\n\n\t3.SEARCH STUDENT RECORD ";
+
+    cout<<"\n\n\t4.MODIFY STUDENT RECORD";
+
+    cout<<"\n\n\t5.DELETE STUDENT RECORD";
+
+    cout<<"\n\n\t6.BACK TO MAIN MENU";
+
+    cout<<"\n\n\tPlease Enter Your Choice (1-6) ";
+
+    ch2=getche();
+
+    switch(ch2)
+
+    {
+
+    case '1':
+
+        clrscr();
+
+        write_student();
+
+        break;
+
+    case '2':
+
+        display_all();
+
+        break;
+
+    case '3':
+
+        int num;
+
+        clrscr();
+
+        cout<<"\n\n\tPlease Enter The roll number ";
+
+        cin>>num;
+
+        display_sp(num);
+
+        break;
+
+    case '4':
+
+        modify_student();
+
+        break;
+
+    case '5':
+
+        delete_student();
+
+        break;
+
+    case '6':
+
+        break;
+
+    default:
+
+        cout<<"\a";
+
+        entry_menu();
+
+    }
+
+}
+
