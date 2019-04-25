@@ -151,4 +151,119 @@ void display_sp(int n)
 //      function to modify record of file
 //****************************************************************
 
+void modify_student()
 
+{
+
+    int no,found=0;
+
+    clrscr();
+
+    cout<<"\n\n\tTo Modify ";
+
+    cout<<"\n\n\tPlease Enter The roll number of student";
+
+    cin>>no;
+
+    fp.open("student.dat",ios::in|ios::out);
+
+    while(fp.read((char*)&st,sizeof(student)) && found==0)
+
+    {
+
+       if(st.retrollno()==no)
+
+        {
+
+            st.showdata();
+
+            cout<<"\nPlease Enter The New Details of student"<<endl;
+
+            st.getdata();
+
+            int pos=-1*sizeof(st);
+
+            fp.seekp(pos,ios::cur);
+
+            fp.write((char*)&st,sizeof(student));
+
+            cout<<"\n\n\t Record Updated";
+
+            found=1;
+
+        }
+    }
+
+    
+      fp.close();
+
+    if(found==0)
+
+        cout<<"\n\n Record Not Found ";
+
+    getch();
+}
+
+ 
+
+ 
+
+//***************************************************************
+
+//      function to delete record of file
+
+//****************************************************************
+
+ 
+
+ 
+
+void delete_student()
+
+{
+
+    int no;
+
+    clrscr();
+
+    cout<<"\n\n\n\tDelete Record";
+
+    cout<<"\n\nPlease Enter The roll number of student You Want To Delete";
+
+    cin>>no;
+
+    fp.open("student.dat",ios::in|ios::out);
+
+    fstream fp2;
+
+    fp2.open("Temp.dat",ios::out);
+
+    fp.seekg(0,ios::beg);
+
+    while(fp.read((char*)&st,sizeof(student)))
+
+    {
+
+        if(st.retrollno()!=no)
+
+        {
+
+            fp2.write((char*)&st,sizeof(student));
+
+       }
+
+    }
+
+    fp2.close();
+
+    fp.close();
+
+    remove("student.dat");
+
+    rename("Temp.dat","student.dat");
+
+    cout<<"\n\n\tRecord Deleted ..";
+
+    getch();
+
+}
