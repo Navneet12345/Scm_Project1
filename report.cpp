@@ -171,7 +171,7 @@ void modify_student()
 
     {
 
-        if(st.retrollno()==no)
+       if(st.retrollno()==no)
 
         {
 
@@ -192,5 +192,78 @@ void modify_student()
             found=1;
 
         }
+    }
+
+    
+      fp.close();
+
+    if(found==0)
+
+        cout<<"\n\n Record Not Found ";
+
+    getch();
+}
+
+ 
+
+ 
+
+//***************************************************************
+
+//      function to delete record of file
+
+//****************************************************************
+
+ 
+
+ 
+
+void delete_student()
+
+{
+
+    int no;
+
+    clrscr();
+
+    cout<<"\n\n\n\tDelete Record";
+
+    cout<<"\n\nPlease Enter The roll number of student You Want To Delete";
+
+    cin>>no;
+
+    fp.open("student.dat",ios::in|ios::out);
+
+    fstream fp2;
+
+    fp2.open("Temp.dat",ios::out);
+
+    fp.seekg(0,ios::beg);
+
+    while(fp.read((char*)&st,sizeof(student)))
+
+    {
+
+        if(st.retrollno()!=no)
+
+        {
+
+            fp2.write((char*)&st,sizeof(student));
+
+       }
 
     }
+
+    fp2.close();
+
+    fp.close();
+
+    remove("student.dat");
+
+    rename("Temp.dat","student.dat");
+
+    cout<<"\n\n\tRecord Deleted ..";
+
+    getch();
+
+}
