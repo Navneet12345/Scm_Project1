@@ -404,3 +404,39 @@ void result()
 
 }
 
+//***************************************************************
+
+//      INTRODUCTION FUNCTION
+
+//****************************************************************
+
+
+
+void intro()
+
+{
+
+    clrscr();
+
+    gotoxy(35,11);
+
+    cout<<"STUDENT";
+
+    gotoxy(33,14);
+
+    cout<<"REPORT CARD";
+
+    gotoxy(35,17);
+
+    cout<<"PROJECT";
+
+    cout<<"\n\nMADE BY : Code With C";
+
+    cout<<"\n\nCONTACT : codewithc.com";
+
+    getch();
+
+
+
+}
+
