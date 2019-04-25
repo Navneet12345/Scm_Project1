@@ -1,3 +1,4 @@
+
 //***************************************************************
 //                   HEADER FILE USED IN PROJECT
 //****************************************************************
@@ -530,3 +531,70 @@ void entry_menu()
 
 }
 
+void main()
+
+{
+
+    char ch;
+
+    intro();
+
+    do
+
+    {
+
+        clrscr();
+
+        cout<<"\n\n\n\tMAIN MENU";
+
+        cout<<"\n\n\t01. RESULT MENU";
+
+        cout<<"\n\n\t02. ENTRY/EDIT MENU";
+
+        cout<<"\n\n\t03. EXIT";
+
+        cout<<"\n\n\tPlease Select Your Option (1-3) ";
+
+        ch=getche();
+
+        switch(ch)
+
+        {
+
+        case '1':
+
+            clrscr();
+
+            result();
+
+            break;
+
+        case '2':
+
+            entry_menu();
+
+            break;
+
+        case '3':
+
+            exit(0);
+
+        default :
+
+            cout<<"\a";
+
+        }
+
+    }
+
+    while(ch!='3');
+
+}
+
+
+
+//***************************************************************
+
+//                      END OF PROJECT
+
+//***************************************************************
