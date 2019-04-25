@@ -267,3 +267,60 @@ void delete_student()
     getch();
 
 }
+
+//***************************************************************
+
+//      function to display all students grade report
+
+//****************************************************************
+
+
+
+void class_result()
+
+{
+
+    clrscr();
+
+    fp.open("student.dat",ios::in);
+
+    if(!fp)
+
+    {
+
+        cout<<"ERROR!!! FILE COULD NOT BE OPEN\n\n\n Go To Entry Menu to create File";
+
+        cout<<"\n\n\n Program is closing ....";
+
+        getch();
+
+        exit(0);
+
+    }
+
+
+
+    cout<<"\n\n\t\tALL STUDENTS RESULT \n\n";
+
+    cout<<"====================================================\n";
+
+    cout<<"Roll No. Name          P  C  M  E  CS  %age Grade\n";
+
+    cout<<"====================================================\n";
+
+
+
+    while(fp.read((char*)&st,sizeof(student)))
+
+    {
+
+        st.show_tabular();
+
+    }
+
+    fp.close();
+
+    getch();
+
+}
+
